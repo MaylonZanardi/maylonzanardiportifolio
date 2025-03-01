@@ -86,8 +86,9 @@ h6 {
 #header .profile img {
   margin: 15px auto;
   display: block;
-  width: 120px;
+  width: 200px;
   border: 8px solid #2c2f3f;
+  border-radius: 20% !important;
 }
 
 #header .profile h1 {
@@ -136,6 +137,18 @@ h6 {
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.typed {
+  color: #000 !important
+}
+
+.image-logo {
+  margin-bottom: -98px;
+  margin-left: -102px;
+  height: 300px;
+}
+
+
 
 @media (max-width: 1199px) {
   #header {
