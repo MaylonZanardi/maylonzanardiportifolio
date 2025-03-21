@@ -326,7 +326,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #f9f9f9;
   font-size: 14px;
   text-align: center;
   padding: 30px 0;
@@ -878,7 +878,7 @@ section,
 }
 
 .resume .resume-item ul {
-  padding-left: 0px;
+  padding-left: 15px;
 }
 
 .resume .resume-item ul li {
