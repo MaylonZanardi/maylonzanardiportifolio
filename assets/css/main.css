@@ -20,7 +20,7 @@
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
+  --default-color: #000000; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
@@ -29,7 +29,7 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #45505b;  /* The default color of the main navmenu links */
+  --nav-color: #ffffff;  /* The default color of the main navmenu links */
   --nav-hover-color: #0563bb; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
@@ -40,7 +40,7 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f9f9f9;
+  --background-color: #c4bfbf;
   --surface-color: #ffffff;
 }
 
@@ -153,9 +153,10 @@ h6 {
   overflow-y: auto;
   z-index: 997;
   min-width: 200px;
+  
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1299px) {
   .header {
     background-color: var(--background-color);
     border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -169,7 +170,7 @@ h6 {
     margin-left: 160px;
   }
 
-  .header~main .hero {
+  .header~main .imagem-fundo {
     margin-left: -160px;
     width: 100vw;
   }
@@ -212,9 +213,9 @@ h6 {
 
 .navmenu ul {
   list-style: none;
-  padding: 0 0 20px 0;
+  padding: 0;
   margin: 5px;
-  width: 160px;
+  width: 100%;
 }
 
 .navmenu a {
@@ -226,7 +227,7 @@ h6 {
   margin-bottom: 8px;
   font-size: 15px;
   border-radius: 50px;
-  background: color-mix(in srgb, var(--default-color), transparent 92%);
+  background: color-mix(in srgb, var(--default-color), transparent 50%);
   height: 56px;
   width: 100%;
   overflow: hidden;
@@ -257,17 +258,67 @@ h6 {
 .navmenu li:hover>a {
   color: var(--contrast-color);
   background: var(--nav-hover-color);
+  
 }
 
 .navmenu a:hover,
 .navmenu li:hover>a {
   max-width: 100%;
   color: var(--contrast-color);
+  
 }
 
 .navmenu a:hover span,
 .navmenu li:hover>a span {
   display: block;
+}
+
+.language-toggle {
+  padding: 30px 0;
+}
+
+.language-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.language-buttons .btn {
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.language-buttons .btn.active {
+  background-color: #0563bb;
+  border-color: #0563bb;
+  color: #fff;
+}
+
+.language-buttons .btn:not(.active) {
+  background-color: #fff;
+  color: #0563bb;
+  border-color: #0563bb;
+}
+
+.language-buttons .btn:not(.active):hover {
+  background-color: #0563bb;
+  color: #fff;
+}
+
+.bandeiras{
+  text-align: center;
+  margin-right: -10px
+}
+
+.img-bandeira{
+  width: 32px; 
+  height: 30px;
+  margin-top: 10px; 
+  display: inline-block;
+  margin: 0 5px;
 }
 
 /*--------------------------------------------------------------
@@ -512,9 +563,9 @@ section,
 
 #header .profile img {
   margin: 15px auto;
-  margin-top: -200px;
+  margin-top: -140px;
   display: block;
-  width: 150px;
+  width: 160px;
   border: 2px solid #2c2f3f;
   border-radius: 20% !important;
 }
@@ -556,7 +607,7 @@ section,
   text-decoration: none;
 }
 
-.hero {
+.imagem-fundo {
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -566,7 +617,7 @@ section,
   justify-content: center;
 }
 
-.hero img {
+.imagem-fundo img {
   position: absolute;
   inset: 0;
   display: block;
@@ -580,7 +631,12 @@ section,
   margin-top: -40px;
 }
 
-.hero:before {
+.text-academic {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.imagem-fundo:before {
   content: "";
   background: color-mix(in srgb, var(--background-color), transparent 30%);
   position: absolute;
@@ -588,32 +644,32 @@ section,
   z-index: 2;
 }
 
-.hero .container {
+.imagem-fundo .container {
   position: relative;
   z-index: 3;
 }
 
-.hero h2 {
+.imagem-fundo h2 {
   margin: 0;
   font-size: 64px;
   font-weight: 700;
 }
 
-.hero p {
+.imagem-fundo p {
   margin: 5px 0 0 0;
   font-size: 26px;
 }
 
-.hero p span {
+.imagem-fundo p span {
   letter-spacing: 1px;
   border-bottom: 2px solid var(--accent-color);
 }
 
-.hero .social-links {
+.imagem-fundo .social-links {
   margin-top: 25px;
 }
 
-.hero .social-links a {
+.imagem-fundo .social-links a {
   font-size: 20px;
   display: inline-block;
   color: var(--accent-color);
@@ -622,16 +678,16 @@ section,
   transition: 0.3s;
 }
 
-.hero .social-links a:hover {
+.imagem-fundo .social-links a:hover {
   color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
-  .hero h2 {
+  .imagem-fundo h2 {
     font-size: 32px;
   }
 
-  .hero p {
+  .imagem-fundo p {
     font-size: 20px;
   }
 }
@@ -742,6 +798,11 @@ section,
   background-color: var(--accent-color);
 }
 
+.distance-soft-skills {
+  margin-top: 100px;
+}
+
+
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
@@ -753,6 +814,32 @@ section,
   margin-bottom: 20px;
 }
 
+.imagem-redonda {
+  width: 100px;
+  height: 100px;
+}
+
+.imagem-redonda- {
+  width: 100px;
+  height: 100px;
+  border-top-left-radius: 20%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 70%;
+  border-bottom-left-radius: 20%;
+  object-fit: cover
+}
+
+.container-academico{
+  align-items: center;
+}
+
+.img-arredondamento{
+  width: 10px;
+}
+.img-certificacao-1{
+  padding: 10px;
+}
+
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
@@ -760,13 +847,26 @@ section,
   position: relative;
 }
 
+.imagem-positive{
+  width: 100px;
+}
+
+.resume-item h4, 
+.resume-item span {
+  display: inline-block;
+}
+
+.imagem-positive{
+  max-width: 150px;
+}
 .resume .resume-item h4 {
   line-height: 18px;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 10px;
+  margin-bottom: 2px;
+  align-items: center;
 }
 
 .resume .resume-item h5 {
@@ -778,7 +878,7 @@ section,
 }
 
 .resume .resume-item ul {
-  padding-left: 20px;
+  padding-left: 0px;
 }
 
 .resume .resume-item ul li {
