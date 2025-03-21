@@ -815,13 +815,13 @@ section,
 }
 
 .imagem-redonda {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 .imagem-redonda- {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-top-left-radius: 20%;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 70%;
