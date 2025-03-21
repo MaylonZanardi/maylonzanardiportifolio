@@ -1,0 +1,45 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código com histórico
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Configurar AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: sa-east-1
+
+      - name: Obter arquivos alterados e removidos no commit
+        id: changed-files
+        run: |
+          echo "FILES=$(git diff --name-only HEAD^ HEAD | tr '\n' ' ')" >> $GITHUB_ENV
+          echo "DELETED_FILES=$(git diff --diff-filter=D --name-only HEAD^ HEAD | tr '\n' ' ')" >> $GITHUB_ENV
+
+      - name: Deploy apenas dos arquivos alterados para S3
+        if: env.FILES != ''
+        run: |
+          for file in $FILES; do
+            if [ -f "$file" ]; then
+              aws s3 cp "$file" "s3://maylonzanardi.com/$file"
+            fi
+          done
+
+      - name: Remover arquivos deletados do S3
+        if: env.DELETED_FILES != ''
+        run: |
+          for file in $DELETED_FILES; do
+            aws s3 rm "s3://maylonzanardi.com/$file"
+          done
